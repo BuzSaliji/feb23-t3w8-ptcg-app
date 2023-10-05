@@ -5,28 +5,25 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ApiProvider from './contexts/ApiContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import CardSearchByName from './Pages/PagesCardSearch';
+import CardSearchByName from './Pages/CardSearchByName.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ApiProvider>
-    <BrowserRouter>
+      
+      <BrowserRouter>
         <Routes>
-          {/* HomePage Route */}
+          {/* Homepage route  */}
           <Route path="/" element={<App />}/>
           {/* API fetch route */}
           <Route path="/card/search/:pokemonName" element={<CardSearchByName />} />
+
+          
         </Routes>
       
       </BrowserRouter>
-      <App />
+      
     </ApiProvider>
-    
-  </React.StrictMode>
+  </React.StrictMode>,
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
