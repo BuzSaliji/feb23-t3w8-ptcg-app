@@ -4,11 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ApiProvider from './contexts/ApiContext';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CardSearchByName from './Pages/PagesCardSearch';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ApiProvider>
+    <BrowserRouter>
+        <Routes>
+          {/* HomePage Route */}
+          <Route path="/" element={<App />}/>
+          {/* API fetch route */}
+          <Route path="/card/search/:pokemonName" element={<CardSearchByName />} />
+        </Routes>
+      
+      </BrowserRouter>
       <App />
     </ApiProvider>
     
